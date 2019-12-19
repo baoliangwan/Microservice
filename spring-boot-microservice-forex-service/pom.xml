@@ -94,4 +94,31 @@
 		</plugins>
 	</build>
 
+<repositories>
+<repository>
+  <id>baoliangfeed</id>
+  <url>https://pkgs.dev.azure.com/Karanokyokaishiki/BaoliangDevOps/_packaging/baoliangfeed/maven/v1</url>
+  <releases>
+    <enabled>true</enabled>
+  </releases>
+  <snapshots>
+    <enabled>true</enabled>
+  </snapshots>
+</repository>
+</repositories>
+
+<distributionManagement>
+<repository>
+  <id>baoliangfeed</id>
+  <url>https://pkgs.dev.azure.com/Karanokyokaishiki/BaoliangDevOps/_packaging/baoliangfeed/maven/v1</url>
+  <releases>
+    <enabled>true</enabled>
+  </releases>
+  <snapshots>
+    <enabled>true</enabled>
+  </snapshots>
+</repository>
+</distributionManagement>
+
+
 </project>
