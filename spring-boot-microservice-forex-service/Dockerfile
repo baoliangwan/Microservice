@@ -11,7 +11,6 @@ RUN chmod +x mvnw
 RUN ./mvnw install -DskipTests
 RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
-RUN ./mvnw deploy
 
 FROM openjdk:8-jdk-alpine
 VOLUME /tmp
