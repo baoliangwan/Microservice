@@ -34,8 +34,6 @@ stages:
       name: secureFile # The name with which to reference the secure file's path on the agent, like $(secureFile.secureFilePath)
       inputs:
         secureFile: 'settings.xml' # The file name or GUID of the secure file
-    - script: |
-        sudo ln -s -t /tmp $(secureFile.secureFilePath)
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
