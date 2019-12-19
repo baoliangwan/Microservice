@@ -1,6 +1,9 @@
 FROM openjdk:8-jdk-alpine as build
 WORKDIR /workspace/app
 
+RUN mkdir ~/.m2
+COPY $(settingsxml.secureFilePath ~/.m2/settings.xml
+
 COPY mvnw .
 COPY .mvn .mvn
 COPY pom.xml .

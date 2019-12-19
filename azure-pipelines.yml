@@ -28,6 +28,12 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
+# Download secure file
+# Download a secure file to the agent machine
+- task: DownloadSecureFile@1
+  name: settingsxml # The name with which to reference the secure file's path on the agent, like $(settingsxml.secureFilePath)
+  inputs:
+    settings.xml: # The file name or GUID of the secure file
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
