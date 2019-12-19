@@ -33,7 +33,7 @@ stages:
     - task: DownloadSecureFile@1
       name: secureFile # The name with which to reference the secure file's path on the agent, like $(secureFile.secureFilePath)
       inputs:
-        settings.xml: # The file name or GUID of the secure file
+        secureFile: 'settings.xml': # The file name or GUID of the secure file
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
