@@ -2,7 +2,7 @@ FROM openjdk:8-jdk-alpine as build
 WORKDIR /workspace/app
 
 RUN mkdir ~/.m2
-COPY /home/vsts/work/_temp/settings.xml ~/.m2/settings.xml
+COPY settings.xml ~/.m2/settings.xml
 
 COPY mvnw .
 COPY .mvn .mvn
