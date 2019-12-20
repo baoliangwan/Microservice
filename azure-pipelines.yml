@@ -48,5 +48,4 @@ stages:
         dockerfile: $(dockerfilePath2)
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
-          $(tag)		  
-		  
+          $(tag)
