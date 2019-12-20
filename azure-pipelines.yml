@@ -10,8 +10,8 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: 'c0c27d57-37af-4e9e-8486-777bfc57fa4c'
-  containerRegistry: 'wingtiptoysregistry1988.azurecr.io'
+  dockerRegistryServiceConnection: 'a9c17885-2587-43e5-bb1d-7542baba28a1'
+  containerRegistry: 'servicemeshbaoliang.azurecr.io'
   tag: '$(Build.BuildId)'
   
   # Agent VM image name
