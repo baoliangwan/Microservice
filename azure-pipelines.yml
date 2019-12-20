@@ -11,11 +11,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: 'c0c27d57-37af-4e9e-8486-777bfc57fa4c'
-  imageRepository1: 'springbootmicroservicecurrencyconversion'
-  imageRepository2: 'springbootmicroserviceforexservice'
   containerRegistry: 'wingtiptoysregistry1988.azurecr.io'
-  dockerfilePath1: '$(Build.SourcesDirectory)/$(imageRepository1)/Dockerfile'
-  dockerfilePath2: '$(Build.SourcesDirectory)/$(imageRepository2)/Dockerfile'
   tag: '$(Build.BuildId)'
   
   # Agent VM image name
@@ -30,22 +26,22 @@ stages:
     displayName: Build
     pool:
       vmImage: $(vmImageName)
+	strategy:
+      maxParallel: 2
+	  matrix:
+	    imageRepo_1:
+	      imageRepository: 'springbootmicroservicecurrencyconversion'
+          dockerfilePath: '$(Build.SourcesDirectory)/$(imageRepository)/Dockerfile'
+	    imageRepo_2:
+	      imageRepository: 'springbootmicroserviceforexservice'
+          dockerfilePath: '$(Build.SourcesDirectory)/$(imageRepository)/Dockerfile'		  
     steps:
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
         command: buildAndPush
-        repository: $(imageRepository1)
-        dockerfile: $(dockerfilePath1)
-        containerRegistry: $(dockerRegistryServiceConnection)
-        tags: |
-          $(tag)
-    - task: Docker@2
-      displayName: Build and push an image to container registry
-      inputs:
-        command: buildAndPush
-        repository: $(imageRepository2)
-        dockerfile: $(dockerfilePath2)
+        repository: $(imageRepository)
+        dockerfile: $(dockerfilePath)
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
