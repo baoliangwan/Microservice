@@ -26,14 +26,14 @@ stages:
     displayName: Build
     pool:
       vmImage: $(vmImageName)
-	strategy:
+    strategy:
       maxParallel: 2
-	  matrix:
-	    imageRepo_1:
-	      imageRepository: 'springbootmicroservicecurrencyconversion'
+      matrix:
+        imageRepo_1:
+          imageRepository: 'springbootmicroservicecurrencyconversion'
           dockerfilePath: '$(Build.SourcesDirectory)/$(imageRepository)/Dockerfile'
-	    imageRepo_2:
-	      imageRepository: 'springbootmicroserviceforexservice'
+        imageRepo_2:
+          imageRepository: 'springbootmicroserviceforexservice'
           dockerfilePath: '$(Build.SourcesDirectory)/$(imageRepository)/Dockerfile'		  
     steps:
     - task: Docker@2
