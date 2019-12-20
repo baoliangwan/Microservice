@@ -33,7 +33,7 @@ stages:
           dockerfilePath: '$(Build.SourcesDirectory)/$(imageRepository)/Dockerfile'
         imageRepo_2:
           imageRepository: 'springbootmicroserviceforexservice'
-          dockerfilePath: '$(Build.SourcesDirectory)/$(imageRepository)/Dockerfile'		  
+          dockerfilePath: '$(Build.SourcesDirectory)/$(imageRepository)/Dockerfile'
     steps:
     - task: Docker@2
       displayName: Build and push an image to container registry
