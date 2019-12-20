@@ -17,9 +17,6 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
-   <azure.containerRegistry>wingtiptoysregistry1988</azure.containerRegistry>
-   <docker.image.prefix>${azure.containerRegistry}.azurecr.io</docker.image.prefix>
-   <maven.build.timestamp.format>yyyyMMddHHmmssSSS</maven.build.timestamp.format>
 	</properties>
 
 	<dependencies>
@@ -74,23 +71,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-<plugin>
-   <groupId>com.spotify</groupId>
-   <artifactId>docker-maven-plugin</artifactId>
-   <configuration>
-      <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-      <registryUrl>https://${docker.image.prefix}</registryUrl>
-      <serverId>${azure.containerRegistry}</serverId>
-      <dockerDirectory>.</dockerDirectory>
-      <resources>
-         <resource>
-            <targetPath>/</targetPath>
-            <directory>${project.build.directory}</directory>
-            <include>${project.build.finalName}.jar</include>
-         </resource>
-      </resources>
-   </configuration>
-</plugin>
 		</plugins>
 	</build>
 
