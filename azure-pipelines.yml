@@ -10,7 +10,7 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: 'c772078e-1508-4a3e-a331-577a1fae596f'
+  dockerRegistryServiceConnection: '1141bd92-e8ea-44d6-8f73-e42f620ed5c7'
   containerRegistry: 'servicemeshbaoliang.azurecr.io'
   tag: '$(Build.BuildId)'
   
