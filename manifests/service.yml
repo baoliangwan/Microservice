@@ -1,10 +1,31 @@
 apiVersion: v1
 kind: Service
 metadata:
-    name: servicemesh
+  name: currencyconversionservice
+  labels:
+    app: currencyconversionservice
 spec:
-    type: LoadBalancer
-    ports:
-    - port: 80 
-    selector:
-        app: servicemesh
+  selector:
+    app: currencyconversionservice
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: forexservice
+  labels:
+    app: forexservice
+spec:
+  selector:
+    app: forexservice
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
