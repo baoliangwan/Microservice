@@ -11,9 +11,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '12ac5da5-6952-4f2c-8290-68367b65d323'
-  imageRepository: 'forexservice'
   containerRegistry: 'servicemeshbaoliang.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/springbootmicroserviceforexservice/Dockerfile'
   tag: '$(Build.BuildId)'
   
   # Agent VM image name
@@ -27,6 +25,15 @@ stages:
     displayName: Build
     pool:
       vmImage: $(vmImageName)
+    strategy:
+      maxParallel: 2
+      matrix:
+        imageRepo_1:
+          imageRepository: 'forexservice'
+          dockerfilePath: '$(Build.SourcesDirectory)/springbootmicroserviceforexservice/Dockerfile'
+        imageRepo_2:
+          imageRepository: 'currencyconversionservice'
+          dockerfilePath: '$(Build.SourcesDirectory)/springbootmicroservicecurrencyconversion/Dockerfile'
     steps:
     - task: Docker@2
       displayName: Build and push an image to container registry
