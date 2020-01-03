@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: forexservice 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: forexservice 
+    spec:
+      containers:
+        - name: forexservice 
+          image: servicemeshbaoliang.azurecr.io/forexservice
+          ports:
+          - containerPort: 80
