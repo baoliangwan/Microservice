@@ -85,7 +85,8 @@ stages:
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
-                $(containerRegistry)/$(imageRepository):$(tag)
+                $(containerRegistry)/forexservice:$(tag)
+                $(containerRegistry)/currencyconversionservice:$(tag)
 
   - deployment: DeployPullRequest
     displayName: Deploy Pull request
@@ -126,7 +127,8 @@ stages:
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
-                $(containerRegistry)/$(imageRepository):$(tag)
+                $(containerRegistry)/forexservice:$(tag)
+                $(containerRegistry)/currencyconversionservice:$(tag)
           
           - task: Kubernetes@1
             name: get
