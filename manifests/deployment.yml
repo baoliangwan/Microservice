@@ -19,3 +19,26 @@ spec:
         image: servicemeshbaoliang.azurecr.io/forexservice
         ports:
         - containerPort: 80
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: currencyconversionservice
+  labels:
+    app: currencyconversionservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: currencyconversionservice
+  template:
+    metadata:
+      labels:
+        app: currencyconversionservice
+    spec:
+      containers:
+      - name: currencyconversionservice
+        image: servicemeshbaoliang.azurecr.io/currencyconversionservice
+        ports:
+        - containerPort: 80
