@@ -14,7 +14,7 @@ variables:
   dockerRegistryServiceConnection: '7384a662-268f-43e6-85a5-7ee853b0d5d5'
   imageRepository: 'forexservice'
   containerRegistry: 'servicemeshbaoliang.azurecr.io'
-  dockerfilePath: '**/Dockerfile'
+  dockerfilePath: '$(Build.SourcesDirectory)/$(imageRepository)/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'servicemeshbaoliang8622fd53-auth'
 
