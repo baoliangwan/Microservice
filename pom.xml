@@ -10,8 +10,8 @@
   </properties>
  
   <modules>
-    <module>springbootmicroservicecurrencyconversion</module>
-    <module>springbootmicroserviceforexservice</module>
+    <module>forexservice</module>
+    <module>currencyconversionservice</module>
   </modules>
 
   <build>
